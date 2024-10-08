@@ -8,6 +8,7 @@ clearvars;
 p = set_params();
 
 % Change parameter values here
+p.kF = 0.1;
 
 [params, parnames] = pars2vector(p,0);
 
@@ -53,6 +54,9 @@ nexttile;
 plot(t,y(:,1), 'linewidth', lw, 'color', c1)
 xlabel(xlab)
 xlim(tspan)
+ymin = min([0; y(:,1)]);
+ymax = max(y(:,1));
+ylim([ymin,ymax])
 ylabel('Factor V')
 grid on
 set(gca,'fontsize',fsize)
@@ -62,6 +66,9 @@ nexttile;
 plot(t,y(:,2),'linewidth',lw,'color',c1)
 xlabel(xlab)
 xlim(tspan)
+ymin = min([0; y(:,2)]);
+ymax = max(y(:,2));
+ylim([ymin,ymax])
 ylabel('Factor Va')
 grid on
 set(gca, 'fontsize', fsize)
@@ -71,6 +78,9 @@ nexttile;
 plot(t,y(:,3),'linewidth',lw,'color',c1)
 xlabel(xlab)
 xlim(tspan)
+ymin = min([0; y(:,3)]);
+ymax = max(y(:,3));
+ylim([ymin,ymax])
 ylabel('Factor X')
 grid on
 set(gca, 'fontsize', fsize)
@@ -78,6 +88,9 @@ set(gca, 'fontsize', fsize)
 % factor Xa
 nexttile;
 plot(t,y(:,4),'linewidth',lw,'color',c1)
+ymin = min([0; y(:,4)]);
+ymax = max(y(:,4));
+ylim([ymin,ymax])
 xlabel(xlab)
 xlim(tspan)
 ylabel('Factor Xa')
@@ -88,6 +101,9 @@ set(gca, 'fontsize', fsize)
 nexttile;
 plot(t,y(:,5),'linewidth',lw,'color',c1)
 xlabel(xlab)
+ymin = min([0; y(:,5)]);
+ymax = max(y(:,5));
+ylim([ymin,ymax])
 xlim(tspan)
 ylabel('Prothrombin')
 grid on
@@ -98,6 +114,9 @@ nexttile;
 plot(t,y(:,6),'linewidth',lw,'color',c1)
 xlabel(xlab)
 xlim(tspan)
+ymin = min([0; y(:,6)]);
+ymax = max(y(:,6));
+ylim([ymin,ymax])
 ylabel('Thrombin')
 grid on
 set(gca, 'fontsize', fsize)
