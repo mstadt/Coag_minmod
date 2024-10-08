@@ -1,2 +1,5 @@
 
 /simbio_version
+*.asv
+*.txt
+newparamnames.txt

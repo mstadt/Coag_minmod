@@ -8,22 +8,6 @@ clearvars;
 p = set_params();
 
 % Change parameter values here
-p.kF = 0.1; % flow
-
-% factor V
-p.V_up = 1; 
-p.k5 = 1;
-p.kT5 = 0.1;
-
-% factor X
-p.kT10 = 0.1;
-p.X_up = 1;
-
-% prothrombin
-p.P_up = 1;
-
-p.TF_VIIa0 = 1;
-
 
 [params, parnames] = pars2vector(p,0);
 
