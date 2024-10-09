@@ -156,3 +156,5 @@ T = y(:,6);
 
 fprintf('time at max(T): %0.2f \n', t(id))
 fprintf('max thrombin: %0.4f \n', maxT)
+fprintf('steady thrombin: %0.4f \n', T(end))
+
