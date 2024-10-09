@@ -29,9 +29,9 @@ a5  = k5 * T; %functional form of a5([T])
 
 a10 = TF_VIIa0; % functional form of a10([TF:VIIa]_0)
 
-%aT  = kT10*Xa./(Km_X + Xa) + kT5*(Xa/(Km_X + Xa))*(Va/(Km_V + Va));%kT5*Va + kT10*Xa; % functional form of aT([Xa],[Va])
-%aT = kT10*Xa./(Km_X + Xa) + kT5 * (Xa/(Km_X + Xa))*(1 + min(S, Va));
-aT = kT10*(1 + kT5*min(S, Va)) * Xa./(Km_X + Xa);
+Km_V = S/2; % functional form of Km_V based on surface argument; 
+
+aT  = kT10*Xa./(Km_X + Xa) + kT5*(Xa/(Km_X + Xa))*(Va/(Km_V + Va));%kT5*Va + kT10*Xa; % functional form of aT([Xa],[Va])
 
 % ODES
 % d(V)/dt

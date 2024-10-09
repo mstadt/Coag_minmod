@@ -44,9 +44,13 @@ a5  = k5 * T; %functional form of a5([T])
 
 a10 = TF_VIIa0; % functional form of a10([TF:VIIa]_0)
 
-aT  = kT10*Xa./(Km_X + Xa)*(1+kT5*min(S,Va)); % functional form of aT([Xa],[Va])
+Km_V = S/2; % functional form of Km_V based on surface argument; 
 
-a10_8 = k10_9*IXa./(Km_IX + IXa)*(1+k10_8*min(S,VIIIa)); % functional form of a10_8([Xa],[Va])
+aT  = kT10*Xa./(Km_X + Xa) + kT5*(Xa/(Km_X + Xa))*(Va/(Km_V + Va));%kT5*Va + kT10*Xa; % functional form of aT([Xa],[Va])
+
+Km_VIII = S/2; 
+
+a10_8  = k10_9*IXa./(Km_IX + IXa) + k10_8*IXa./(Km_IX + IXa)*(VIIIa/(Km_VIII + VIIIa));%kT5*Va + kT10*Xa; % functional form of aT([Xa],[Va])
 
 a8  = k8 * T; %functional form of a8([T])
 
