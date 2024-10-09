@@ -1,8 +1,8 @@
-function dydt = lamprey_mod(t,y,params, I1, I2)
+function dydt = mammal_mod(t,y,params, I1, I2)
 %% Set variable names
 V     = y(1); % factor V
 Va    = y(2); % factor Va
-X     = y(3); % factor X
+X     = y(3); % factox  r X
 Xa    = y(4); % factor Xa
 P     = y(5); % prothrombin
 T     = y(6); % thrombin
@@ -21,11 +21,18 @@ k5 = params(3);
 kT5 = params(4);
 Km_V = params(5);
 kT10 = params(6);
-X_up = params(7);
-Km_X = params(8);
-S = params(9);
-P_up = params(10);
-TF_VIIa0 = params(11);
+VIII_up = params(7);
+k8 = params(8);
+k10_8 = params(9);
+IX_up = params(10);
+k9 = params(11);
+k10_9 = params(12);
+Km_IX = params(13);
+X_up = params(14);
+Km_X = params(15);
+S = params(16);
+P_up = params(17);
+TF_VIIa0 = params(18);
 
 
 %% Model equations
@@ -37,9 +44,13 @@ a5  = k5 * T; %functional form of a5([T])
 
 a10 = TF_VIIa0; % functional form of a10([TF:VIIa]_0)
 
-%aT  = kT10*Xa./(Km_X + Xa) + kT5*(Xa/(Km_X + Xa))*(Va/(Km_V + Va));%kT5*Va + kT10*Xa; % functional form of aT([Xa],[Va])
 aT  = kT10*Xa./(Km_X + Xa)*(1+kT5*min(S,Va)); % functional form of aT([Xa],[Va])
 
+a10_8 = k10_9*IXa./(Km_IX + IXa)*(1+k10_8*min(S,VIIIa)); % functional form of a10_8([Xa],[Va])
+
+a8  = k8 * T; %functional form of a8([T])
+
+a9  = k9 * T; %functional form of a9([T])
 % ODES
 % d(V)/dt
 dydt(1) = kF*(V_up - V) - a5*V;
@@ -51,7 +62,7 @@ dydt(2) = a5*V;  % - kF*Va;
 dydt(3) = kF*(X_up - X) - a10*X;
 
 % d(Xa)/dt 
-dydt(4) = a10*X - I1*Xa; %- kF*Xa;
+dydt(4) = a10*X - I1*Xa + a10_8*X; %- kF*Xa;
 
 % d(P)/dt
 dydt(5) = kF*(P_up - P) - aT*P;
@@ -60,14 +71,14 @@ dydt(5) = kF*(P_up - P) - aT*P;
 dydt(6) = aT*P - I2*T - kF*T;
 
 % d(VIII)/dt
-dydt(7) = aT*P - I2*T - kF*T;
+dydt(7) = kF*(VIII_up - VIII) - a8*VIII; 
 
 % d(VIIIa)/dt
-dydt(8) = aT*P - I2*T - kF*T;
+dydt(8) = a8*VIII; 
 
 % d(IX)/dt
-dydt(9) = aT*P - I2*T - kF*T;
+dydt(9) = kF*(IX_up - IX) - a9*IX; 
 
 % d(IXa)/dt
-dydt(10) = aT*P - I2*T - kF*T;
+dydt(10) = a9*IX;
 end

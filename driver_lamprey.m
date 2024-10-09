@@ -8,22 +8,22 @@ clearvars;
 p = set_params();
 
 % Change parameter values here
-p.kF = 0.1;
+p.kF = 1;
 
 [params, parnames] = pars2vector(p,0);
 
 % Set initial conditions
-V0  = 1;
+V0  = 0.1;
 Va0 = 0;
 X0  = 1;
 Xa0 = 0;
-P0  = 1;
+P0  = 10;
 T0  = 0;
 IC = [V0; Va0; X0; Xa0; P0; T0];
 
 % inhibitors
-I1 = 0.1;
-I2 = 0.1;
+I1 = 1;
+I2 = 1;
 
 % set simulation time
 t0 = 0;
@@ -130,3 +130,4 @@ T = y(:,6);
 
 fprintf('time at max(T): %0.2f \n', t(id))
 fprintf('max thrombin: %0.4f \n', maxT)
+fprintf('steady state thrombin: %0.4f\n', T(end)); 

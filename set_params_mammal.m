@@ -1,4 +1,4 @@
-function p = set_params()
+function p = set_params_mammal()
 
 % flow
 p.kF = 0; %0.1; % flow
@@ -15,14 +15,18 @@ p.kT10 = 0.1;
 
 % Factor VIII
 p.VIII_up = 1; 
-p.kT8 = 1; 
+p.k8 = 1; 
 
 % Factor VIIIa
 p.k10_8 = 0.1; 
 
 % Factor IX
 p.IX_up = 1; 
-p.kT9 = 0.1; 
+p.k9   = 1; 
+p.k10_9 = 0.1; 
+
+% Factor IXa
+p.Km_IX = 0.1; 
 
 % Factor X
 p.X_up = 1;

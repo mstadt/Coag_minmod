@@ -3,5 +3,4 @@ clear all;
 
 %% Set parameters
 p = set_params_mammal();
-
 [params, parnames] = pars2vector(p,1);

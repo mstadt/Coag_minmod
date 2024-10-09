@@ -19,7 +19,7 @@ function [param_vec, param_names] = pars2vector(pars, newpars)
     
     % optional: easier for writing up model equations and checking params
     if newpars
-        fid = fopen('newparamnames.txt','wt');
+        fid = fopen('newparamnames.txt','w');
         for jj = 1:numpars
             fprintf(fid, '%s = params(%d);\n',param_names{jj},jj);
         end
