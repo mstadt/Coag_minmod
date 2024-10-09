@@ -8,26 +8,26 @@ clearvars;
 p = set_params();
 
 % Change parameter values here
-p.kF = 1;
+p.kF = 10;
 
 [params, parnames] = pars2vector(p,0);
 
 % Set initial conditions
-V0  = 0.1;
+V0  = 1; 0.1;
 Va0 = 0;
-X0  = 1;
+X0  = 10;
 Xa0 = 0;
-P0  = 10;
+P0  = 100;
 T0  = 0;
 IC = [V0; Va0; X0; Xa0; P0; T0];
 
 % inhibitors
-I1 = 1;
-I2 = 1;
+I1 = 100;
+I2 = 100;
 
 % set simulation time
 t0 = 0;
-tf = 100;
+tf = 6000;
 tspan = [t0,tf];
 opts_ode = odeset('RelTol', 1e-6, 'AbsTol', 1e-9, 'MaxStep', 1e-2);
 
@@ -40,6 +40,7 @@ opts_ode = odeset('RelTol', 1e-6, 'AbsTol', 1e-9, 'MaxStep', 1e-2);
 % fig specs
 cmap = summer(4);
 c1 = cmap(1,:);
+c2 = cmap(3,:);
 lw = 4;
 fsize = 14;
 xlab = 't';
@@ -99,7 +100,7 @@ set(gca, 'fontsize', fsize)
 
 % Prothrombin
 nexttile;
-plot(t,y(:,5),'linewidth',lw,'color',c1)
+plot(t,y(:,5),'linewidth',lw,'color',c2)
 xlabel(xlab)
 ymin = min([0; y(:,5)]);
 ymax = max(y(:,5));
@@ -111,7 +112,7 @@ set(gca, 'fontsize', fsize)
 
 % Thrombin
 nexttile;
-plot(t,y(:,6),'linewidth',lw,'color',c1)
+plot(t,y(:,6),'linewidth',lw,'color',c2)
 xlabel(xlab)
 xlim(tspan)
 ymin = min([0; y(:,6)]);

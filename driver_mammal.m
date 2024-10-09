@@ -7,31 +7,31 @@ clearvars;
 % Set parameters
 p = set_params_mammal();
 
-p.kF = 1; 
+p.kF = 0.1; 
 % Change parameter values here
 
 [params, parnames] = pars2vector(p,0);
 
 % Set initial conditions
-V0  = 0.1;
+V0  = 1; 0.1;
 Va0 = 0;
-X0  = 1;
+X0  = 10; 1;
 Xa0 = 0;
-P0  = 10;
+P0  = 100; 10;
 T0  = 0;
-VIII0 = 1; 
+VIII0 = 0.01; 0.5; 
 VIIIa0 = 0; 
-IX0    = 1; 
+IX0    = 1; 1; 
 IXa0   = 0; 
 IC = [V0; Va0; X0; Xa0; P0; T0; VIII0; VIIIa0; IX0; IXa0];
 
 % inhibitors
-I1 = 10;
-I2 = 10;
+I1 = 100;
+I2 = 100;
 
 % set simulation time
 t0 = 0;
-tf = 100;
+tf = 500;
 tspan = [t0,tf];
 opts_ode = odeset('RelTol', 1e-6, 'AbsTol', 1e-9, 'MaxStep', 1e-2);
 
@@ -49,7 +49,7 @@ lw = 4;
 fsize = 14;
 xlab = 't';
 
-figure(1);
+figure(2);
 clf;
 nr = 5; nc = 2;
 tiledlayout(nr,nc);
