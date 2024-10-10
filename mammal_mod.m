@@ -45,8 +45,6 @@ a5  = k5 * T; %functional form of a5([T])
 
 a10 = TF_VIIa0; % functional form of a10([TF:VIIa]_0)
 
-Ks = P_up/2;
-
 S = (T+ep)/(T+ep+Ks); % functional form of S(T) for Va and Xa
 
 Km_V = V_up;
@@ -63,7 +61,8 @@ a10_8  = k10_9*IXa./(Km_IX + IXa) + k10_8*IXa./(Km_IX + IXa)*(VIIIa/(Km_VIII + V
 
 a8  = k8 * T; %functional form of a8([T])
 
-a9  = k9 * T; %functional form of a9([T])
+a9  = k9 * TF_VIIa0; %functional form of a9([TF::VIIa])
+
 % ODES
 % d(V)/dt
 dydt(1) = kF*(V_up - V) - a5*V;

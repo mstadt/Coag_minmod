@@ -28,6 +28,7 @@ dydt = zeros(length(y), 1);
 
 % Algebraic
 a5  = k5 * T; %functional form of a5([T])
+%a5 = k5;
 
 a10 = TF_VIIa0; % functional form of a10([TF:VIIa]_0)
 

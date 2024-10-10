@@ -8,7 +8,9 @@ clearvars;
 p = set_params_mammal();
  
 % Change parameter values here
-p.kF = 0.1;
+p.kF = 1;
+p.Ks = 0.1;
+p.ep = 0.1;
 
 [params, parnames] = pars2vector(p,0);
 
@@ -26,12 +28,12 @@ IXa0   = 0;
 IC = [V0; Va0; X0; Xa0; P0; T0; VIII0; VIIIa0; IX0; IXa0];
 
 % inhibitors
-I1 = 100;
-I2 = 100;
+I1 = 10;
+I2 = 10;
 
 % set simulation time
 t0 = 0;
-tf = 6000;
+tf = 300;
 tspan = [t0,tf];
 opts_ode = odeset('RelTol', 1e-6, 'AbsTol', 1e-9, 'MaxStep', 1e-2);
 
@@ -49,7 +51,7 @@ lw = 4;
 fsize = 14;
 xlab = 't';
 
-figure(2);
+figure(21);
 clf;
 nr = 5; nc = 2;
 tiledlayout(nr,nc);
@@ -140,6 +142,14 @@ set(gca, 'fontsize', fsize)
 
 % Thrombin
 nexttile;
+plot(t,y(:,6),'linewidth',lw,'color',c2)
+xlabel(xlab)
+xlim(tspan)
+ylabel('Thrombin')
+grid on
+set(gca, 'fontsize', fsize)
+
+figure(25)
 plot(t,y(:,6),'linewidth',lw,'color',c2)
 xlabel(xlab)
 xlim(tspan)

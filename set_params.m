@@ -5,7 +5,7 @@ p.kF = 0.1; %0.1; % flow
 
 % Factor V
 p.V_up = 1; 0.1; 
-p.k5 = 1;
+p.k5 = 100;
 p.kT5 = 1;
 
 % Factor Va
@@ -23,7 +23,7 @@ p.P_up = 100; 10;
 p.TF_VIIa0 = 0.1; 0.01;
 
 % Surface
-p.ep = 1;
+p.ep = 0.1;
 p.Ks = 0.1;
 
 end

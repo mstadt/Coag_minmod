@@ -9,8 +9,8 @@ p = set_params();
 
 % Change parameter values here
 p.kF = 1;
-p.Ks = 1;
-p.ep = 0.5;
+p.Ks = 0.1;
+p.ep = 0.1;
 
 [params, parnames] = pars2vector(p,0);
 
@@ -47,7 +47,7 @@ lw = 4;
 fsize = 14;
 xlab = 't';
 
-figure(1);
+figure(12);
 clf;
 nr = 3; nc = 2;
 tiledlayout(nr,nc);
@@ -120,6 +120,14 @@ xlim(tspan)
 ymin = min([0; y(:,6)]);
 ymax = max(y(:,6));
 ylim([ymin,ymax])
+ylabel('Thrombin')
+grid on
+set(gca, 'fontsize', fsize)
+
+figure(17)
+plot(t,y(:,6),'linewidth',lw,'color',c2)
+xlabel(xlab)
+xlim(tspan)
 ylabel('Thrombin')
 grid on
 set(gca, 'fontsize', fsize)
