@@ -9,6 +9,8 @@ p = set_params();
 
 % Change parameter values here
 p.kF = 1;
+p.Ks = 1;
+p.ep = 0.5;
 
 [params, parnames] = pars2vector(p,0);
 

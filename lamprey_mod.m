@@ -31,8 +31,6 @@ a5  = k5 * T; %functional form of a5([T])
 
 a10 = TF_VIIa0; % functional form of a10([TF:VIIa]_0)
 
-Ks = P_up/100;
-
 S = (T+ep)/(T+ep+Ks); % functional form of S(T) for Va and Xa
 
 Km_V = V_up;
