@@ -8,7 +8,7 @@ clearvars;
 p = set_params();
 
 % Change parameter values here
-p.kF = 10;
+p.kF = 1;
 
 [params, parnames] = pars2vector(p,0);
 
@@ -22,12 +22,12 @@ T0  = 0;
 IC = [V0; Va0; X0; Xa0; P0; T0];
 
 % inhibitors
-I1 = 100;
-I2 = 100;
+I1 = 10;
+I2 = 10;
 
 % set simulation time
 t0 = 0;
-tf = 6000;
+tf = 300;
 tspan = [t0,tf];
 opts_ode = odeset('RelTol', 1e-6, 'AbsTol', 1e-9, 'MaxStep', 1e-2);
 

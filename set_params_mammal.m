@@ -31,12 +31,16 @@ p.Km_IX = 0.1;
 % Factor X
 p.X_up = 10; 1;
 p.Km_X = 0.1;
-p.S = 0.5; 
-
+%p.S = 0.5; 
 
 % Prothrombin
 p.P_up = 100; 10;
 
 % [TF:VIIa]0
 p.TF_VIIa0 = 0.001; 0.01;
+
+% Surface
+p.ep = 0.1;
+p.Ks = 0.1;
+
 end

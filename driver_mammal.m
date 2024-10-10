@@ -6,9 +6,9 @@ clearvars;
 
 % Set parameters
 p = set_params_mammal();
-
-p.kF = 0.1; 
+ 
 % Change parameter values here
+p.kF = 0.1;
 
 [params, parnames] = pars2vector(p,0);
 
@@ -31,7 +31,7 @@ I2 = 100;
 
 % set simulation time
 t0 = 0;
-tf = 500;
+tf = 6000;
 tspan = [t0,tf];
 opts_ode = odeset('RelTol', 1e-6, 'AbsTol', 1e-9, 'MaxStep', 1e-2);
 
