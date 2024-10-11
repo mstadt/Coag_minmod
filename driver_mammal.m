@@ -7,7 +7,8 @@ clearvars;
 % Set parameters
 p = set_params_mammal();
 
-p.kF = 0.1; 
+p.kF = 10; 
+p.S = 1000; 
 % Change parameter values here
 
 [params, parnames] = pars2vector(p,0);
@@ -31,9 +32,9 @@ I2 = 100;
 
 % set simulation time
 t0 = 0;
-tf = 500;
+tf = 1e4;
 tspan = [t0,tf];
-opts_ode = odeset('RelTol', 1e-6, 'AbsTol', 1e-9, 'MaxStep', 1e-2);
+opts_ode = odeset('RelTol', 1e-6, 'AbsTol', 1e-9);
 
 %% Run simulation
 [t,y] = ode45(@(t,y) mammal_mod(t,y,params,...
@@ -45,6 +46,8 @@ opts_ode = odeset('RelTol', 1e-6, 'AbsTol', 1e-9, 'MaxStep', 1e-2);
 cmap = summer(4);
 c1 = cmap(1,:);
 c2 = cmap(3,:);
+c3 = cmap(2,:);
+c4 = cmap(4,:);
 lw = 4;
 fsize = 14;
 xlab = 't';
@@ -157,4 +160,13 @@ T = y(:,6);
 fprintf('time at max(T): %0.2f \n', t(id))
 fprintf('max thrombin: %0.4f \n', maxT)
 fprintf('steady thrombin: %0.4f \n', T(end))
+
+figure(4); 
+plot(t,y(:,6)./max(y(:,6)),'linewidth',lw,'color',c4)
+xlabel(xlab)
+xlim(tspan)
+ylabel('Thrombin')
+grid on
+set(gca, 'fontsize', fsize)
+
 

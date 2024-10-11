@@ -38,5 +38,5 @@ p.S = 0.5;
 p.P_up = 100; 10;
 
 % [TF:VIIa]0
-p.TF_VIIa0 = 0.001; 0.01;
+p.TF_VIIa0 = 0.01; 0.01;
 end

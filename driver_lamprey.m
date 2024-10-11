@@ -9,6 +9,7 @@ p = set_params();
 
 % Change parameter values here
 p.kF = 10;
+p.S = 100; 
 
 [params, parnames] = pars2vector(p,0);
 
@@ -27,9 +28,9 @@ I2 = 100;
 
 % set simulation time
 t0 = 0;
-tf = 6000;
+tf = 50000;
 tspan = [t0,tf];
-opts_ode = odeset('RelTol', 1e-6, 'AbsTol', 1e-9, 'MaxStep', 1e-2);
+opts_ode = odeset('RelTol', 1e-6, 'AbsTol', 1e-9);
 
 %% Run simulation
 [t,y] = ode45(@(t,y) lamprey_mod(t,y,params,...
@@ -40,7 +41,10 @@ opts_ode = odeset('RelTol', 1e-6, 'AbsTol', 1e-9, 'MaxStep', 1e-2);
 % fig specs
 cmap = summer(4);
 c1 = cmap(1,:);
+c3 = cmap(2,:);
 c2 = cmap(3,:);
+c4 = cmap(4,:);
+
 lw = 4;
 fsize = 14;
 xlab = 't';
@@ -132,3 +136,14 @@ T = y(:,6);
 fprintf('time at max(T): %0.2f \n', t(id))
 fprintf('max thrombin: %0.4f \n', maxT)
 fprintf('steady state thrombin: %0.4f\n', T(end)); 
+
+figure(4); 
+plot(t,y(:,6)./max(y(:,6)),'linewidth',lw,'color',c4)
+xlabel(xlab)
+xlim(tspan)
+ymin = min([0; y(:,6)]);
+ymax = max(y(:,6));
+ylabel('Thrombin')
+grid on
+set(gca, 'fontsize', fsize)
+
