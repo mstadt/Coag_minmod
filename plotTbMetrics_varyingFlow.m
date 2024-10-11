@@ -1,5 +1,5 @@
 %
-% Simulation comparison
+% Thrombin metrics for varying flow
 %   10/10/2024
 %
 
