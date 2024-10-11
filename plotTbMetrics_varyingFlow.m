@@ -16,7 +16,7 @@ tTmaxNoFlow_mammal = zeros(size(veckF));
 
 % set simulation time
 t0 = 0;
-tf = 300;
+tf = 500;
 tspan = [t0,tf];
 opts_ode = odeset('RelTol', 1e-6, 'AbsTol', 1e-9, 'MaxStep', 1e-2);
 
