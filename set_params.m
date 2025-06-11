@@ -4,7 +4,7 @@ function p = set_params()
 p.kF = 0.1; %0.1; % flow
 
 % Factor V
-p.V_up = 1; 0.1; 
+p.V_up = 1; 
 p.k5 = 100;
 p.kT5 = 1;
 
@@ -12,18 +12,20 @@ p.kT5 = 1;
 p.kT10 = 0.1;
 
 % Factor X
-p.X_up = 10; 1;
+p.X_up = 10;
 p.Km_X = 0.1;
 %p.S = 0.5;
 
 % Prothrombin
-p.P_up = 100; 10;
+p.P_up = 100; 
 
 % [TF:VIIa]0
-p.TF_VIIa0 = 0.1; 0.01;
+p.TF_VIIa0 = 0.1; 
 
 % Surface
 p.ep = 0.1;
 p.Ks = 0.1;
+
+p.phi = 0;
 
 end

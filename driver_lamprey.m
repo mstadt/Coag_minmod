@@ -8,14 +8,15 @@ clearvars;
 p = set_params();
 
 % Change parameter values here
-p.kF = 1;
+p.kF = 0;
 p.Ks = 0.1;
 p.ep = 0.1;
+p.phi = 0;
 
 [params, parnames] = pars2vector(p,0);
 
 % Set initial conditions
-V0  = 1; 0.1;
+V0  = 1; 
 Va0 = 0;
 X0  = 10;
 Xa0 = 0;
@@ -34,7 +35,7 @@ tspan = [t0,tf];
 opts_ode = odeset('RelTol', 1e-6, 'AbsTol', 1e-9, 'MaxStep', 1e-2);
 
 %% Run simulation
-[t,y] = ode45(@(t,y) lamprey_mod(t,y,params,...
+[t,y] = ode45(@(t,y) lamprey_mod_simpsurface(t,y,params,...
                         I1, I2),...
                         tspan, IC, opts_ode);
 
