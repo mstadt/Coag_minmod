@@ -8,10 +8,10 @@ clearvars;
 p = set_params();
 
 % Change parameter values here
-p.kF = 0;
+p.kF = 1;
 p.Ks = 0.1;
 p.ep = 0.1;
-p.phi = 0;
+p.phi = 0.01;
 
 [params, parnames] = pars2vector(p,0);
 
@@ -25,8 +25,8 @@ T0  = 0;
 IC = [V0; Va0; X0; Xa0; P0; T0];
 
 % inhibitors
-I1 = 10;
-I2 = 10;
+I1 = 0.1;
+I2 = 0.1;
 
 % set simulation time
 t0 = 0;

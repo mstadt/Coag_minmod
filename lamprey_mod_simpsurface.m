@@ -47,7 +47,7 @@ dydt(2) = a5*V - phi*kF*Va;
 dydt(3) = kF*(X_up - X) - a10*X;
 
 % d(Xa)/dt 
-if t < 400
+if t < 100
     dydt(4) = a10*X - I1*Xa - phi*kF*Xa;
 else
     dydt(4) = - I1*Xa - phi*kF*Xa;
