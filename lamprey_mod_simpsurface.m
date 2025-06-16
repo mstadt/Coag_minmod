@@ -19,7 +19,7 @@ Km_X = params(7);
 S = params(8);
 P_up = params(9);
 TF_VIIa0 = params(10);
-phi = params(11); 
+phi = params(13); 
 
 %% Model equations
 dydt = zeros(length(y), 1);
