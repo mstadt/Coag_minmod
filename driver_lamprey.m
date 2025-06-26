@@ -8,7 +8,7 @@ clearvars;
 p = set_params();
 
 % Change parameter values here
-p.kF = 1;
+p.kF = 10;
 p.Ks = 0.1;
 p.ep = 0.1;
 p.phi = 0.01;
